@@ -1,12 +1,11 @@
-const gulp = require('gulp')
 require('babel-register')
+const gulp = require('gulp')
 
 let $ = require('gulp-load-plugins')()
 let path = require('path')
 
 const plugins = {
   babel: $.babel,
-  mocha: $.mocha,
   sourcemaps: $.sourcemaps,
   eslint: $.eslint
 }
@@ -24,22 +23,8 @@ gulp.task('clean', function () {
 })
 
 gulp.task('build', ['lint'], function () {
-  return gulp.src([paths.src])
-  .pipe(plugins.sourcemaps.init())
-  .pipe(plugins.babel())
-  .pipe(plugins.sourcemaps.write('.', {sourceRoot: paths.sourceRoot}))
-  .pipe(gulp.dest(paths.dist))
-})
-
-gulp.task('test', function () {
-  return gulp.src([paths.tests])
-  .pipe(plugins.mocha({
-    compilers: plugins.babel
-  }))
-})
-
-gulp.task('tdd', ['test'], function () {
-  return gulp.watch([paths.src, paths.tests], ['test'])
+  return gulp.src([paths.src]).pipe(plugins.sourcemaps.init()).pipe(plugins.babel())
+  .pipe(plugins.sourcemaps.write('.', {sourceRoot: paths.sourceRoot})).pipe(gulp.dest(paths.dist))
 })
 
 gulp.task('watch', ['clean', 'lint', 'build'], function () {
@@ -47,8 +32,7 @@ gulp.task('watch', ['clean', 'lint', 'build'], function () {
 })
 
 gulp.task('lint', () => {
-  return gulp.src([paths.src, '!node_modules/**'])
-  .pipe(plugins.eslint())
+  return gulp.src([paths.src, '!node_modules/**']).pipe(plugins.eslint())
   .pipe(plugins.eslint.format())
   .pipe(plugins.eslint.failAfterError())
 })

@@ -23,6 +23,7 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-clean": "^0.3.2",
+    "gulp-eslint": "^4.0.0",
     "gulp-jest": "^1.0.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-mocha": "^2.2.0",
@@ -40,7 +41,7 @@
     "verbose": true,
     "testPathIgnorePatterns": [],
     "roots": [
-      "."
+      "tests"
     ]
   },
   "scripts": {
@@ -48,9 +49,6 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "babel-jest": "^19.0.0",
-    "gulp-eslint": "^3.0.1",
-    "jest-cli": "^19.0.2",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
     "mqtt": "^2.7.2",
