@@ -1,8 +1,7 @@
 {
   "name": "cmmc-node-es6-gulp",
-  "version": "0.0.0",
   "version": "0.0.1",
-  "description": "hello",
+  "description": "cmmc-node-es6-gulp-template",
   "engineStrict": true,
   "engines": {
     "node": ">=6.9"
@@ -54,6 +53,8 @@
     "jest-cli": "^19.0.2",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
+    "mqtt": "^2.7.2",
     "underscore": "^1.8.3",
+    "winston": "^2.3.1"
   }
 }
