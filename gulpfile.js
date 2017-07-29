@@ -24,7 +24,7 @@ gulp.task('clean', function () {
 
 gulp.task('build', ['lint'], function () {
   return gulp.src([paths.src]).pipe(plugins.sourcemaps.init()).pipe(plugins.babel())
-  .pipe(plugins.sourcemaps.write('.', {sourceRoot: paths.sourceRoot})).pipe(gulp.dest(paths.dist))
+    .pipe(plugins.sourcemaps.write('.', {sourceRoot: paths.sourceRoot})).pipe(gulp.dest(paths.dist))
 })
 
 gulp.task('watch', ['clean', 'lint', 'build'], function () {
@@ -33,8 +33,8 @@ gulp.task('watch', ['clean', 'lint', 'build'], function () {
 
 gulp.task('lint', () => {
   return gulp.src([paths.src, '!node_modules/**']).pipe(plugins.eslint())
-  .pipe(plugins.eslint.format())
-  .pipe(plugins.eslint.failAfterError())
+    .pipe(plugins.eslint.format())
+    .pipe(plugins.eslint.failAfterError())
 })
 
 gulp.task('default', ['clean'], function () {
@@ -42,7 +42,7 @@ gulp.task('default', ['clean'], function () {
 })
 
 // gulp.task('tdd-single', function () {
-//   return gulp.watch('__tests__/*.js')
+//   return gulp.watch('tests/*.js')
 //   .on('change', function (file) {
 //     gulp.src(file.path)
 //     .pipe(mocha({
